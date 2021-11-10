@@ -1,5 +1,7 @@
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -11,7 +13,13 @@ import static org.openqa.selenium.By.partialLinkText;
 
 public class SelenideTest {
 
-    @Test()
+    @Owner("apodgornova")
+    @Feature("Поиск")
+    @Story("Поиск в Issues, чистый SelenideListener")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Github test with Allure labels, clean SelenideListener")
+    @Link(name = "GitHub", url = "https://github.com")
+    @Test
     void testGithubIssueSelenide() {
 
         /*

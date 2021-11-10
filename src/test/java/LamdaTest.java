@@ -1,5 +1,7 @@
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -12,7 +14,13 @@ import static org.openqa.selenium.By.partialLinkText;
 
 public class LamdaTest {
 
-    @Test()
+    @Owner("apodgornova")
+    @Feature("Поиск")
+    @Story("Поиск в Issues, lamda")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Github test with Allure labels with lamda steps")
+    @Link(name = "GitHub", url = "https://github.com")
+    @Test
     void testGithubIssueLamda() {
 
         /*

@@ -1,3 +1,5 @@
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import steps.WebSteps;
 
@@ -5,6 +7,12 @@ public class StepAnnotatedTest {
 
     private final WebSteps steps = new WebSteps();
 
+    @Owner("apodgornova")
+    @Feature("Поиск")
+    @Story("Поиск в Issues, annotated steps")
+    @Severity(SeverityLevel.NORMAL)
+    @DisplayName("Github test with Allure labels with steps annotated")
+    @Link(name = "GitHub", url = "https://github.com")
     @Test()
     void testGithubIssueAnnotatedSteps() {
 
@@ -19,6 +27,7 @@ public class StepAnnotatedTest {
         steps.goToRepository(TestData.REPOSITORY);
         steps.openIssueTab();
         steps.shouldSeeIssueWithNumber(TestData.ISSUE_NUMBER);
+        steps.takeScreenshot();
 
     }
 
