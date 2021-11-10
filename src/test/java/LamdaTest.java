@@ -12,9 +12,6 @@ import static org.openqa.selenium.By.partialLinkText;
 
 public class LamdaTest {
 
-    private static final String REPOSITORY = "eroshenkoam/allure-example";
-    private static final Integer ISSUE_NUMBER = 68;
-
     @Test()
     void testGithubIssueLamda() {
 
@@ -24,18 +21,16 @@ public class LamdaTest {
         2. Лямбда шаги через step (name, () -> {})
          */
 
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Открываем главную страницу Github", () -> {
             open("https://github.com");
         });
 
-        step("Ищем в поле поиска eroshenkoam/allure-example и запускаем поиск", () -> {
+        step("Ищем в поле поиска " + TestData.REPOSITORY, () -> {
             $(".header-search-input").setValue(TestData.REPOSITORY);
             $(".header-search-input").pressEnter();
         });
 
-        step("Переходим по первой найденной ссылке с текстом eroshenkoam/allure-example", () -> {
+        step("Переходим по первой найденной ссылке с текстом " + TestData.REPOSITORY, () -> {
             $(linkText(TestData.REPOSITORY)).click();
         });
 
@@ -43,7 +38,7 @@ public class LamdaTest {
             $(partialLinkText("Issues")).click();
         });
 
-        step("Проверяем что на вкладке Issues есть issue c номером 68", () -> {
+        step("Проверяем что на вкладке Issues есть issue c номером " + TestData.ISSUE_NUMBER, () -> {
             $(withText(TestData.ISSUE_NUMBER)).shouldBe(visible);
         });
 

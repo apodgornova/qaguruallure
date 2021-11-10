@@ -25,7 +25,6 @@ public class SelenideTest {
         open("https://github.com");
         $(".header-search-input").setValue(TestData.REPOSITORY);
         $(".header-search-input").pressEnter();
-
         $(linkText(TestData.REPOSITORY)).click();
         $(partialLinkText("Issues")).click();
         $(withText(TestData.ISSUE_NUMBER)).shouldBe(visible);
